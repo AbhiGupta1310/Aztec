@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Explore Round – Aztec</title>
+    <link rel="stylesheet" href="css/vana-c5aa54.shared.c774fff17.min.css">
+    <style>
+        .upload-container {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .dropdown {
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            width: 80%;
+            height: 20px;
+            margin: 20px auto;
+            background-color: #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0;
+            background-color: #00c600;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="padding-horizontal-small">
+                <div class="hero-component">
+                    <div class="hero-content">
+                        <h1 class="h-64">Explore a Training Round</h1>
+                        <p class="p-24 color-gray">Select your models, configure them, and submit your data to train
+                            privately with Aztec.</p>
+
+                        <div class="upload-container">
+
+                            <!-- Model Dropdowns -->
+                            <div class="dropdown">
+                                <label for="model1" class="h-24">Select Model 1</label>
+                                <select id="model1" class="main-btn w-inline-block">
+                                    <option>GPT-4</option>
+                                    <option>LLaMA 3</option>
+                                    <option>Falcon</option>
+                                </select>
+                            </div>
+
+                            <div class="dropdown">
+                                <label for="model2" class="h-24">Select Model 2</label>
+                                <select id="model2" class="main-btn w-inline-block">
+                                    <option>StableLM</option>
+                                    <option>Mixtral</option>
+                                    <option>BloomZ</option>
+                                </select>
+                            </div>
+
+                            <!-- File Upload -->
+                            <input type="file" id="fileInput" class="main-btn w-inline-block" />
+                            <br><br>
+
+                            <!-- Submit Button -->
+                            <button onclick="startUpload()" class="main-btn primary-white w-inline-block">Upload
+                                Data</button>
+
+                            <!-- Progress Bar -->
+                            <div class="progress-bar" id="progressBar">
+                                <div class="progress-bar-fill" id="barFill"></div>
+                            </div>
+                            <p id="uploadStatus" class="p-16 color-gray"></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        function startUpload() {
+            const file = document.getElementById('fileInput').files[0];
+            const progressBar = document.getElementById('progressBar');
+            const fill = document.getElementById('barFill');
+            const status = document.getElementById('uploadStatus');
+
+            if (!file) {
+                alert("Please select a file first!");
+                return;
+            }
+
+            progressBar.style.display = 'block';
+            fill.style.width = '0%';
+            status.textContent = "Uploading...";
+
+            let progress = 0;
+            const simulate = setInterval(() => {
+                if (progress >= 100) {
+                    clearInterval(simulate);
+                    status.textContent = "Upload complete!";
+                } else {
+                    progress += 10;
+                    fill.style.width = progress + '%';
+                }
+            }, 200);
+        }
+    </script>
+</body>
+
+</html>

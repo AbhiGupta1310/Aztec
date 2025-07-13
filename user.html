@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Model - Aztec</title>
+    <link rel="stylesheet" href="css/vana-c5aa54.shared.c774fff17.min.css">
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #eaeaea;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 3rem;
+        }
+
+        .model-card {
+            background: #121212;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: 0.3s ease;
+        }
+
+        .model-card:hover {
+            background: #1a1a1a;
+            transform: scale(1.01);
+        }
+
+        .model-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #00ffae;
+        }
+
+        .description {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        select,
+        input[type='file'],
+        button {
+            margin-top: 0.5rem;
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        button {
+            background: #00c600;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .progress-container {
+            margin-top: 1rem;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #00ffae;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="font-size: 2.5rem; color: #fff; margin-bottom: 2rem">Train a Model</h1>
+
+        <!-- Card for LLaMA Model -->
+        <div class="model-card">
+            <div class="model-title">LLaMA Model - Healthcare</div>
+            <div class="description">A lightweight model fine-tuned for healthcare data analysis, patient triaging, and
+                medical summarization.</div>
+            <label for="llama-dropdown">Select version:</label>
+            <select id="llama-dropdown">
+                <option>LLaMA v1</option>
+                <option>LLaMA v2</option>
+                <option>LLaMA-2 with PEFT</option>
+            </select>
+            <label for="llama-file">Upload your dataset:</label>
+            <input type="file" id="llama-file" />
+            <button onclick="startUpload('llama')">Submit</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="llama-progress"></div>
+            </div>
+        </div>
+
+        <!-- Add more model cards similarly -->
+        <div class="model-card">
+            <div class="model-title">Mistral - Financial Forecast</div>
+            <div class="description">Optimized for temporal sequence learning and financial trend modeling using PEFT.
+            </div>
+            <label for="mistral-dropdown">Select version:</label>
+            <select id="mistral-dropdown">
+                <option>Mistral v1</option>
+                <option>Mistral PEFT</option>
+            </select>
+            <label for="mistral-file">Upload your dataset:</label>
+            <input type="file" id="mistral-file" />
+            <button onclick="startUpload('mistral')">Submit</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="mistral-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startUpload(model) {
+            const progressBar = document.getElementById(`${model}-progress`);
+            progressBar.style.width = '0%';
+
+            let percent = 0;
+            const interval = setInterval(() => {
+                percent += 10;
+                progressBar.style.width = `${percent}%`;
+
+                if (percent >= 100) {
+                    clearInterval(interval);
+                    alert(`${model.toUpperCase()} Data Upload Complete!`);
+                }
+            }, 300);
+        }
+    </script>
+</body>
+
+</html>

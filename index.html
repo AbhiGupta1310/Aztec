@@ -154,8 +154,8 @@
                           d="M5.75 0.54297L5.75 3.20117L7.63672 1.31445L8.52734 2.20508L8.68555 2.36426L8.52734 2.52344L6.81348 4.25098L9.45801 4.25098L9.45801 5.74902L6.81641 5.74902L8.52734 7.45899L8.68848 7.62012L8.52539 7.7793L7.77734 8.51172L7.61816 8.66699L7.45996 8.50977L5.75 6.79883L5.75 9.45996L5.52148 9.45703L4.47363 9.44043L4.25195 9.43652L4.25195 6.80176L2.54199 8.52539L2.38086 8.6875L2.22168 8.52441L1.48926 7.77637L1.33398 7.61719L1.49121 7.45898L3.20215 5.74902L0.543944 5.74902L0.543945 4.25098L3.20508 4.25098L1.49121 2.52344L1.33301 2.36426L1.49121 2.20508L2.22266 1.47363L2.38281 1.31445L2.54199 1.47461L4.25195 3.19727L4.25195 0.542969L5.75 0.54297Z"
                           fill="currentColor" stroke="currentColor" stroke-width="0.450347"></path>
                       </svg></div>
-                    <div data-btn="text">BUILD</div><svg xmlns="http://www.w3.org/2000/svg" width="100%"
-                      viewBox="0 0 20 20" fill="none" class="nav-menu-item-icon">
+                    <div data-btn="text">BUILD</div><svg xmlns="" width="100%" viewBox="0 0 20 20" fill="none"
+                      class="nav-menu-item-icon">
                       <path d="M10.835 17.5L10.835 2.5L9.16829 2.5L9.16829 17.5H10.835Z" fill="currentColor"></path>
                       <path d="M12.5 15.8366V14.1699H10.8333V15.8366H12.5Z" fill="currentColor"></path>
                       <path d="M9.16504 15.8366V14.1699H7.49837V15.8366H9.16504Z" fill="currentColor"></path>
@@ -806,7 +806,6 @@
               <div class="margin-top-48">
                 <div class="button-center">
                   <div class="button-center"><a data-btn="link" data-wf--button--variant="quaternary"
-                      href="https://www.datadex.com/" target="_blank"
                       class="main-btn w-variant-2c8aeac3-b930-7a92-1221-79f4422595cc w-inline-block">
                       <div class="arrow-svg w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                           xmlns="http://www.w3.org/2000/svg">
@@ -836,7 +835,8 @@
                             </clipPath>
                           </defs>
                         </svg></div>
-                      <div data-btn="text">Explore Rounds</div>
+                      <div data-btn="text" id="exploreRoundsBtn">Explore Rounds</div>
+
                     </a><a data-btn="link" data-wf--button--variant="secondary" href="/collectives"
                       class="main-btn w-variant-0b261abc-da3c-b7ee-02ac-6b3576df2757 w-inline-block">
                       <div class="arrow-svg w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -1414,6 +1414,19 @@
       if (target) observer.observe(target);
     });
   </script>
+  <script>
+    document.getElementById("exploreRoundsBtn").addEventListener("click", () => {
+      // Optional: add a little animation or fade out
+      document.body.style.opacity = "0";
+      document.body.style.transition = "opacity 0.5s ease";
+
+      // Redirect after slight delay for the effect
+      setTimeout(() => {
+        window.location.href = "explore-round.html";
+      }, 500);
+    });
+  </script>
+
 </body>
 
 </html>

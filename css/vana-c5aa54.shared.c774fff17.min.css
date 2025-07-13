@@ -6178,3 +6178,110 @@ figcaption {
   order: 0;
   grid-area: 1/1/2/2;
 }
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; /* Controls spacing between cards */
+  padding: 2rem;
+  justify-items: center;
+}
+
+.card-box {
+  background-color: #1f1f1f;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.model-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  color: #fff;
+  line-height: 1.3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.model-description,
+.data-requirements li {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.upload-btn,
+.submit-btn {
+  margin-top: 0.75rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-btn {
+  background-color: #ccc;
+  color: #000;
+}
+
+.submit-btn {
+  background-color: #0000ff;
+  color: #fff;
+}
+.upload-label {
+  background-color: #ccc;
+  color: #000;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+.upload-label:hover {
+  background-color: #bbb;
+}
+
+#wallet-icon-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  text-align: right;
+}
+
+#wallet-logo {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#wallet-logo:hover {
+  transform: scale(1.1);
+}
+
+#wallet-info {
+  margin-top: 10px;
+  background-color: #1f1f1f;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#wallet-info button {
+  background-color: #0000ff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
